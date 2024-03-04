@@ -1,7 +1,11 @@
 
 package CertificateGenerator;
 
+import javax.swing.JOptionPane;
+
 public class EnterStudentDetails extends javax.swing.JFrame {
+    String studentName, studentDepartment, studentID, startYear, endYear, dateOfAward;
+    
 
     public EnterStudentDetails() {
         initComponents();
@@ -19,12 +23,13 @@ public class EnterStudentDetails extends javax.swing.JFrame {
         lblStudentDept = new javax.swing.JLabel();
         lblStartYear = new javax.swing.JLabel();
         lblEndYear = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        txtStudentID1 = new javax.swing.JTextField();
+        lblDOC = new javax.swing.JLabel();
+        txtStudentID = new javax.swing.JTextField();
         txtStudentDept = new javax.swing.JTextField();
         txtStartYear = new javax.swing.JTextField();
         txtEndYear = new javax.swing.JTextField();
         txtDateofAward = new javax.swing.JTextField();
+        btnGenerateCert = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,8 +53,16 @@ public class EnterStudentDetails extends javax.swing.JFrame {
         lblEndYear.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         lblEndYear.setText("End year:");
 
-        jLabel5.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        jLabel5.setText("Date of Certificate Awarded:");
+        lblDOC.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        lblDOC.setText("Date of Certificate Awarded:");
+
+        btnGenerateCert.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
+        btnGenerateCert.setText("Generate Certificate");
+        btnGenerateCert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerateCertActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -60,32 +73,37 @@ public class EnterStudentDetails extends javax.swing.JFrame {
                 .addComponent(topicLabel)
                 .addGap(149, 149, 149))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtDateofAward, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(50, 50, 50)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblDOC)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtDateofAward, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblStudentName, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtStudentName, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblStudentID)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtStudentID, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblStartYear)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtStartYear, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(43, 43, 43)
+                                .addComponent(lblEndYear)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtEndYear, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblStudentDept)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtStudentDept, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblStudentName, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtStudentName, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblStudentID)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtStudentID1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblStartYear)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtStartYear, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(43, 43, 43)
-                        .addComponent(lblEndYear)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtEndYear, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblStudentDept)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtStudentDept, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(229, 229, 229)
+                        .addComponent(btnGenerateCert)))
                 .addContainerGap(122, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -100,7 +118,7 @@ public class EnterStudentDetails extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblStudentID)
-                    .addComponent(txtStudentID1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtStudentID, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblStudentDept)
@@ -113,9 +131,11 @@ public class EnterStudentDetails extends javax.swing.JFrame {
                     .addComponent(txtEndYear, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
+                    .addComponent(lblDOC)
                     .addComponent(txtDateofAward, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(194, Short.MAX_VALUE))
+                .addGap(40, 40, 40)
+                .addComponent(btnGenerateCert, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(99, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -132,18 +152,29 @@ public class EnterStudentDetails extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public static void main(String args[]) {
+    private void btnGenerateCertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateCertActionPerformed
+        // TODO add your handling code here:
+        
+        studentName = txtStudentName.getText();
+        studentDepartment = txtStudentDept.getText();
+        studentID = txtStudentID.getText();
+        startYear = txtStartYear.getText();
+        endYear = txtEndYear.getText();
+        dateOfAward = txtDateofAward.getText();
+        
+        if("".equals(studentName) || "".equals(studentDepartment) || "".equals(studentID) || "".equals(startYear) || "".equals(endYear) || "".equals(dateOfAward)){
+            JOptionPane.showMessageDialog(rootPane, "Empty Spaces are not allowed");
+        }else{
+            JOptionPane.showMessageDialog(this, "Saved");
+        }
+    }//GEN-LAST:event_btnGenerateCertActionPerformed
 
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new EnterStudentDetails().setVisible(true);
-            }
-        });
-    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JButton btnGenerateCert;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblDOC;
     private javax.swing.JLabel lblEndYear;
     private javax.swing.JLabel lblStartYear;
     private javax.swing.JLabel lblStudentDept;
@@ -154,7 +185,7 @@ public class EnterStudentDetails extends javax.swing.JFrame {
     private javax.swing.JTextField txtEndYear;
     private javax.swing.JTextField txtStartYear;
     private javax.swing.JTextField txtStudentDept;
-    private javax.swing.JTextField txtStudentID1;
+    private javax.swing.JTextField txtStudentID;
     private javax.swing.JTextField txtStudentName;
     // End of variables declaration//GEN-END:variables
 }
