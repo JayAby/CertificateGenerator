@@ -1,10 +1,20 @@
 
 package CertificateGenerator;
 
+import java.time.LocalDate;
 import javax.swing.JOptionPane;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class EnterStudentDetails extends javax.swing.JFrame {
     String studentName, studentDepartment, studentID, startYear, endYear, dateOfAward;
+    
+    //Getting the current date
+    LocalDate currentDate = LocalDate.now();
+    
+    //Formatting the date as a string
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    String formattedDate = currentDate.format(formatter);
     
 
     public EnterStudentDetails() {
@@ -30,6 +40,8 @@ public class EnterStudentDetails extends javax.swing.JFrame {
         txtEndYear = new javax.swing.JTextField();
         txtDateofAward = new javax.swing.JTextField();
         btnGenerateCert = new javax.swing.JButton();
+        lblReasonForAward = new javax.swing.JLabel();
+        txtReasonForAward = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,6 +75,9 @@ public class EnterStudentDetails extends javax.swing.JFrame {
                 btnGenerateCertActionPerformed(evt);
             }
         });
+
+        lblReasonForAward.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        lblReasonForAward.setText("Reason for Award: ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -100,9 +115,13 @@ public class EnterStudentDetails extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(lblStudentDept)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtStudentDept, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(txtStudentDept, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblReasonForAward)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtReasonForAward, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(229, 229, 229)
+                        .addGap(224, 224, 224)
                         .addComponent(btnGenerateCert)))
                 .addContainerGap(122, Short.MAX_VALUE))
         );
@@ -123,7 +142,11 @@ public class EnterStudentDetails extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblStudentDept)
                     .addComponent(txtStudentDept, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                .addGap(34, 34, 34)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblReasonForAward)
+                    .addComponent(txtReasonForAward, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblStartYear)
                     .addComponent(lblEndYear)
@@ -135,7 +158,7 @@ public class EnterStudentDetails extends javax.swing.JFrame {
                     .addComponent(txtDateofAward, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addComponent(btnGenerateCert, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addGap(32, 32, 32))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -160,8 +183,9 @@ public class EnterStudentDetails extends javax.swing.JFrame {
         studentID = txtStudentID.getText();
         startYear = txtStartYear.getText();
         endYear = txtEndYear.getText();
+        txtDateofAward.setText(formattedDate);
         dateOfAward = txtDateofAward.getText();
-        
+                
         if("".equals(studentName) || "".equals(studentDepartment) || "".equals(studentID) || "".equals(startYear) || "".equals(endYear) || "".equals(dateOfAward)){
             JOptionPane.showMessageDialog(rootPane, "Empty Spaces are not allowed");
         }else{
@@ -176,6 +200,7 @@ public class EnterStudentDetails extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblDOC;
     private javax.swing.JLabel lblEndYear;
+    private javax.swing.JLabel lblReasonForAward;
     private javax.swing.JLabel lblStartYear;
     private javax.swing.JLabel lblStudentDept;
     private javax.swing.JLabel lblStudentID;
@@ -183,6 +208,7 @@ public class EnterStudentDetails extends javax.swing.JFrame {
     private javax.swing.JLabel topicLabel;
     private javax.swing.JTextField txtDateofAward;
     private javax.swing.JTextField txtEndYear;
+    private javax.swing.JTextField txtReasonForAward;
     private javax.swing.JTextField txtStartYear;
     private javax.swing.JTextField txtStudentDept;
     private javax.swing.JTextField txtStudentID;
