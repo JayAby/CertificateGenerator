@@ -105,12 +105,12 @@ public class SelectTemplate extends javax.swing.JFrame {
             String endYear = studentDetails[4];
             String awardDate = studentDetails[5];
             String reasonForAward = studentDetails[6];
-            g.drawString(name, 650, 400);
+            g.drawString(name, 900, 540);
             g.drawString(dept,900,1100);
-            g.drawString(id,400,1100);
-            g.drawString(startYear +  " - " + endYear ,500,1100);
-            g.drawString(awardDate, 500, 800);
-            g.drawString(reasonForAward, 730,934);
+            g.drawString(id,290,1100);
+            g.drawString(startYear +  " - " + endYear ,1400,1100);
+            g.drawString(awardDate, 900, 932); 
+            g.drawString(reasonForAward, 750,760); 
 
             
             //Save the new certificate
