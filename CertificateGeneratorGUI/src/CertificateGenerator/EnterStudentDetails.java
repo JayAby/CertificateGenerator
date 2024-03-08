@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class EnterStudentDetails extends javax.swing.JFrame {
-    String studentName, studentDepartment, studentID, startYear, endYear, dateOfAward;
+    String studentName, studentDepartment, studentID, startYear, endYear, dateOfAward, reasonForAward;
     
     //Getting the current date
     LocalDate currentDate = LocalDate.now();
@@ -22,6 +22,12 @@ public class EnterStudentDetails extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
+    
+    public String[] getStudentDetails(){
+        return new String[] {
+            studentName,studentDepartment,studentID,startYear,endYear,dateOfAward,reasonForAward 
+        };
+    }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -185,11 +191,16 @@ public class EnterStudentDetails extends javax.swing.JFrame {
         endYear = txtEndYear.getText();
         txtDateofAward.setText(formattedDate);
         dateOfAward = txtDateofAward.getText();
+        reasonForAward = txtReasonForAward.getText();
                 
-        if("".equals(studentName) || "".equals(studentDepartment) || "".equals(studentID) || "".equals(startYear) || "".equals(endYear) || "".equals(dateOfAward)){
+        if("".equals(studentName) || "".equals(studentDepartment) || "".equals(studentID) || "".equals(startYear) || "".equals(endYear) || "".equals(dateOfAward) || "".equals(reasonForAward)){
             JOptionPane.showMessageDialog(rootPane, "Empty Spaces are not allowed");
         }else{
-            JOptionPane.showMessageDialog(this, "Saved");
+            //If all fields are field, proceed to the template selection form
+            String[] studentDetails = {studentName, studentDepartment, studentID, startYear, endYear, dateOfAward, reasonForAward};
+            SelectTemplate selectTemplate = new SelectTemplate(studentDetails);
+            selectTemplate.setVisible(true);
+            this.dispose();
         }
     }//GEN-LAST:event_btnGenerateCertActionPerformed
 
