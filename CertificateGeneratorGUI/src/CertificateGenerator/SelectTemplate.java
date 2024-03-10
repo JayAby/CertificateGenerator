@@ -94,8 +94,11 @@ public class SelectTemplate extends javax.swing.JFrame {
             
             //Create a graphic object from the image
             Graphics2D g = certificate.createGraphics();
+            Graphics2D f = certificate.createGraphics();
             g.setColor(Color.BLACK);
             g.setFont(new Font("Arial",Font.BOLD,40));
+            f.setColor(Color.BLACK);
+            f.setFont(new Font("Times New Roman", Font.ITALIC, 50));
             
             //Draw the recipients name
             String name = studentDetails[0] ;
@@ -105,12 +108,12 @@ public class SelectTemplate extends javax.swing.JFrame {
             String endYear = studentDetails[4];
             String awardDate = studentDetails[5];
             String reasonForAward = studentDetails[6];
-            g.drawString(name, 900, 540);
+            f.drawString(name, 900, 540);
             g.drawString(dept,900,1100);
             g.drawString(id,290,1100);
             g.drawString(startYear +  " - " + endYear ,1400,1100);
             g.drawString(awardDate, 900, 932); 
-            g.drawString(reasonForAward, 750,760); 
+            g.drawString(reasonForAward, 900,760); 
 
             
             //Save the new certificate
