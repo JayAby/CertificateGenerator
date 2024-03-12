@@ -7,6 +7,10 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import java.io.FileOutputStream;
+//import com.itextpdf.text.Document;
+//import com.itextpdf.text.pdf.PdfWriter;
+//import com.itextpdf.text.Image;
 
 public class SelectTemplate extends javax.swing.JFrame {
     
@@ -109,7 +113,7 @@ public class SelectTemplate extends javax.swing.JFrame {
             String awardDate = studentDetails[5];
             String reasonForAward = studentDetails[6];
             f.drawString(name, 900, 540);
-            g.drawString(dept,900,1100);
+            g.drawString(dept,850,1100);
             g.drawString(id,290,1100);
             g.drawString(startYear +  " - " + endYear ,1400,1100);
             g.drawString(awardDate, 900, 932); 
@@ -120,9 +124,10 @@ public class SelectTemplate extends javax.swing.JFrame {
             File outputfile = new File("certificate_" + name + ".png");
             ImageIO.write(certificate, "png", outputfile);
             
-            JOptionPane.showMessageDialog(this, "Saved ig");
+            JOptionPane.showMessageDialog(this, "Saved");
             
             g.dispose();
+            f.dispose();
             
         }catch(IOException e){
             e.printStackTrace();
