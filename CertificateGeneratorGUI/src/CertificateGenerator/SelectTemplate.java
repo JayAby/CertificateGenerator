@@ -8,14 +8,12 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import java.io.FileOutputStream;
-//import com.itextpdf.text.Document;
-//import com.itextpdf.text.pdf.PdfWriter;
-//import com.itextpdf.text.Image;
 
 public class SelectTemplate extends javax.swing.JFrame {
     
     private String[] studentDetails;
-
+    private static final String OUTPUT_FOLDER = "Certificates PNG "; //Creating a new folder called Certifcates
+   
 
     public SelectTemplate(String[] studentDetails) {
         initComponents();
@@ -90,8 +88,6 @@ public class SelectTemplate extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblTemplate1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTemplate1MouseClicked
-        // TODO add your handling code here:
-//        JOptionPane.showMessageDialog(this, "Saved ish");
         try{
             //Load the certificate template
             BufferedImage certificate = ImageIO.read(new File("/Users/joel/Desktop/ARU/1/SoftwarePrinciples/Assessment/CertificateGenerator/CertificateGeneratorGUI/src/CertificateGenerator/CertificatesTemplate/CertificateDesignTemplate.png"));
@@ -118,16 +114,23 @@ public class SelectTemplate extends javax.swing.JFrame {
             g.drawString(startYear +  " - " + endYear ,1400,1100);
             g.drawString(awardDate, 900, 932); 
             g.drawString(reasonForAward, 900,760); 
-
-            
-            //Save the new certificate
-            File outputfile = new File("certificate_" + name + ".png");
-            ImageIO.write(certificate, "png", outputfile);
-            
-            JOptionPane.showMessageDialog(this, "Saved");
             
             g.dispose();
             f.dispose();
+
+            
+            //Create the output folder if it doesn't exist
+            File folder = new File(OUTPUT_FOLDER);
+            if(!folder.exists()){
+                folder.mkdir();
+            }
+            
+            //Save the certificate as a PNG file
+            File pngOutputFile = new File(OUTPUT_FOLDER + File.separator + "certificate_" + name + ".png");
+            ImageIO.write(certificate, "png", pngOutputFile);
+
+            JOptionPane.showMessageDialog(this, "Certificate saved as PNG");
+           
             
         }catch(IOException e){
             e.printStackTrace();
