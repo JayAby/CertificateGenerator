@@ -126,7 +126,7 @@ public class SelectTemplate extends javax.swing.JFrame {
             }
             
             //Save the certificate as a PNG file
-            File pngOutputFile = new File(OUTPUT_FOLDER + File.separator + "certificate_" + name + ".png");
+            File pngOutputFile = new File(OUTPUT_FOLDER + File.separator + "certificate_" + name + id + ".png");
             ImageIO.write(certificate, "png", pngOutputFile);
 
             JOptionPane.showMessageDialog(this, "Certificate saved as PNG");
