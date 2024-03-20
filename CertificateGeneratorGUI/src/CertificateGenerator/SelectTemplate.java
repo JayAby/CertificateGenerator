@@ -12,7 +12,7 @@ import java.io.FileOutputStream;
 public class SelectTemplate extends javax.swing.JFrame {
     
     private String[] studentDetails;
-    private static final String OUTPUT_FOLDER = "Certificates PNG "; //Creating a new folder called Certifcates
+    private static final String OUTPUT_FOLDER = "CertificatesPNG"; //Creating a new folder called Certifcates
    
 
     public SelectTemplate(String[] studentDetails) {
