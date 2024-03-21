@@ -6,6 +6,8 @@ import java.io.File;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 public class ViewTemplates extends javax.swing.JFrame {
 
@@ -22,7 +24,8 @@ public class ViewTemplates extends javax.swing.JFrame {
         lblViewTemplates = new javax.swing.JLabel();
         lblSearch = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        fileList = new javax.swing.JList<>();
+        txtSearchField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -38,17 +41,30 @@ public class ViewTemplates extends javax.swing.JFrame {
         File[] files = folder.listFiles((dir, name) -> name.toLowerCase().endsWith(".png"));
 
         //Populate the list model with file names
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings= new String[files.length];
-            {
-                for (int i=0;i<files.length;i++){
-                    strings[i]=files[i].getName();
-                }
+        DefaultListModel<String> listModel = new DefaultListModel<>();
+        for(File file : files){
+            listModel.addElement(file.getName());
+        }
+        fileList.setModel(listModel);
+        jScrollPane1.setViewportView(fileList);
+
+        txtSearchField.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e){
+                filterList(files);
             }
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+
+            @Override
+            public void removeUpdate(DocumentEvent e){
+                filterList(files);
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e){
+                filterList(files);
+            }
         });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(fileList);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -60,9 +76,12 @@ public class ViewTemplates extends javax.swing.JFrame {
                 .addGap(402, 402, 402))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(151, 151, 151)
-                .addComponent(lblSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtSearchField, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -70,14 +89,13 @@ public class ViewTemplates extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(lblViewTemplates, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(lblSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(463, Short.MAX_VALUE))
+                .addGap(36, 36, 36)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSearchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(415, Short.MAX_VALUE))
         );
 
         lblViewTemplates.getAccessibleContext().setAccessibleDescription("");
@@ -96,6 +114,17 @@ public class ViewTemplates extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void filterList(File[] files){
+        DefaultListModel<String> model = (DefaultListModel<String>) fileList.getModel();
+        String searchText = txtSearchField.getText().toLowerCase();
+        model.clear();
+        for(File file : files){
+            String fileName = file.getName();
+            if (fileName.toLowerCase().contains(searchText)){
+                model.addElement(fileName);
+            }
+        }
+    }
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -106,10 +135,11 @@ public class ViewTemplates extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JList<String> jList1;
+    private javax.swing.JList<String> fileList;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblSearch;
     private javax.swing.JLabel lblViewTemplates;
+    private javax.swing.JTextField txtSearchField;
     // End of variables declaration//GEN-END:variables
 }
