@@ -92,6 +92,14 @@ public class SelectTemplate extends javax.swing.JFrame {
             //Load the certificate template
             BufferedImage certificate = ImageIO.read(new File("/Users/joel/Desktop/ARU/1/SoftwarePrinciples/Assessment/CertificateGenerator/CertificateGeneratorGUI/src/CertificateGenerator/CertificatesTemplate/CertificateDesignTemplate.png"));
             
+//            //Create a new Image with dimensions
+//            BufferedImage resizedImage = new BufferedImage(801,518,BufferedImage.TYPE_INT_ARGB);
+//            Graphics2D j = resizedImage.createGraphics();
+//            
+//            //draw the original image onto the resized image
+//            j.drawImage(certificate,0,0,801,518,null);
+//            j.dispose();
+            
             //Create a graphic object from the image
             Graphics2D g = certificate.createGraphics();
             Graphics2D f = certificate.createGraphics();
