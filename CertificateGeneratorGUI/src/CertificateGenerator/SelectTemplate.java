@@ -45,7 +45,7 @@ public class SelectTemplate extends javax.swing.JFrame {
             }
         });
 
-        lblTemplate2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CertificateGenerator/CertificatesTemplate/Certificate Design Template2 (1).png"))); // NOI18N
+        lblTemplate2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CertificateGenerator/CertificatesTemplate/ResizedCertificateDesignTemplate2.png"))); // NOI18N
         lblTemplate2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblTemplate2MouseClicked(evt);
@@ -57,16 +57,13 @@ public class SelectTemplate extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblTemplate1, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(494, 494, 494)
-                        .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblTemplate1, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(98, 98, 98)
-                        .addComponent(lblTemplate2, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(998, Short.MAX_VALUE))
+                    .addComponent(lblTemplate2, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(1063, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -103,15 +100,7 @@ public class SelectTemplate extends javax.swing.JFrame {
         try{
             //Load the certificate template
             BufferedImage certificate = ImageIO.read(new File("/Users/joel/Desktop/ARU/1/SoftwarePrinciples/Assessment/CertificateGenerator/CertificateGeneratorGUI/src/CertificateGenerator/CertificatesTemplate/CertificateDesignTemplate.png"));
-            
-//            //Create a new Image with dimensions
-//            BufferedImage resizedImage = new BufferedImage(801,518,BufferedImage.TYPE_INT_ARGB);
-//            Graphics2D j = resizedImage.createGraphics();
-//            
-//            //draw the original image onto the resized image
-//            j.drawImage(certificate,0,0,801,518,null);
-//            j.dispose();
-            
+                        
             //Create a graphic object from the image
             Graphics2D g = certificate.createGraphics();
             Graphics2D f = certificate.createGraphics();
@@ -146,7 +135,7 @@ public class SelectTemplate extends javax.swing.JFrame {
             }
             
             //Save the certificate as a PNG file
-            File pngOutputFile = new File(OUTPUT_FOLDER + File.separator + "certificate_" + name + id + ".png");
+            File pngOutputFile = new File(OUTPUT_FOLDER + File.separator + "certificate_" + name + "_" + id + ".png");
             ImageIO.write(certificate, "png", pngOutputFile);
 
             JOptionPane.showMessageDialog(this, "Certificate saved as PNG");

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -44,57 +44,55 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="233" max="32767" attributes="0"/>
                   <Component id="topicLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="149" max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
+                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="lblDOC" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="txtDateofAward" min="-2" pref="258" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblStudentName" min="-2" pref="136" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="txtStudentName" min="-2" pref="257" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblStudentID" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="txtStudentID" min="-2" pref="257" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblStartYear" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="txtStartYear" min="-2" pref="136" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                  <Component id="lblEndYear" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="txtEndYear" min="-2" pref="136" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblStudentDept" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="txtStudentDept" min="-2" pref="258" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblReasonForAward" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="txtReasonForAward" min="-2" pref="258" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <Component id="lblDOC" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="txtDateofAward" min="-2" pref="258" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="224" max="-2" attributes="0"/>
-                          <Component id="btnGenerateCert" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblStartYear" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="txtStartYear" min="-2" pref="136" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                          <Component id="lblEndYear" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="txtEndYear" min="-2" pref="136" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="lblReasonForAward" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="txtReasonForAward" min="-2" pref="258" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="lblStudentName" min="-2" pref="136" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="txtStudentName" min="-2" pref="257" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lblStudentDept" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="comboBoxDept" max="32767" attributes="0"/>
+                              <EmptySpace pref="27" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lblStudentID" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="txtStudentID" min="-2" pref="257" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="122" max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="224" max="-2" attributes="0"/>
+                  <Component id="btnGenerateCert" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -113,17 +111,17 @@
                       <Component id="lblStudentID" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtStudentID" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
+                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lblStudentDept" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtStudentDept" min="-2" pref="31" max="-2" attributes="0"/>
+                      <Component id="comboBoxDept" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblReasonForAward" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtReasonForAward" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="33" max="32767" attributes="0"/>
+                  <EmptySpace pref="37" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblStartYear" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblEndYear" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -203,8 +201,6 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtStudentID">
         </Component>
-        <Component class="javax.swing.JTextField" name="txtStudentDept">
-        </Component>
         <Component class="javax.swing.JTextField" name="txtStartYear">
         </Component>
         <Component class="javax.swing.JTextField" name="txtEndYear">
@@ -231,6 +227,49 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtReasonForAward">
+        </Component>
+        <Component class="javax.swing.JComboBox" name="comboBoxDept">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="31">
+                <StringItem index="0" value="Accounting and Finance"/>
+                <StringItem index="1" value="Acting, drama and theatre"/>
+                <StringItem index="2" value="Animal and Environment"/>
+                <StringItem index="3" value="Architecture, Construction and Surveying"/>
+                <StringItem index="4" value="Art and Design"/>
+                <StringItem index="5" value="Business"/>
+                <StringItem index="6" value="Computer Games"/>
+                <StringItem index="7" value="Computer Science"/>
+                <StringItem index="8" value="Crime and Investigation"/>
+                <StringItem index="9" value="Data Science"/>
+                <StringItem index="10" value="Education"/>
+                <StringItem index="11" value="Engineering"/>
+                <StringItem index="12" value="Film and Media"/>
+                <StringItem index="13" value="Health and Medical Science"/>
+                <StringItem index="14" value="Law"/>
+                <StringItem index="15" value="Literature, Language and Writing"/>
+                <StringItem index="16" value="Management"/>
+                <StringItem index="17" value="Marketing"/>
+                <StringItem index="18" value="Medicine"/>
+                <StringItem index="19" value="Midwifery"/>
+                <StringItem index="20" value="Music and music technology"/>
+                <StringItem index="21" value="Nursing"/>
+                <StringItem index="22" value="Operating Department Practice"/>
+                <StringItem index="23" value="Policing"/>
+                <StringItem index="24" value="Post-registratsion Nursing"/>
+                <StringItem index="25" value="Psychology"/>
+                <StringItem index="26" value="Social Care"/>
+                <StringItem index="27" value="Social Sciences"/>
+                <StringItem index="28" value="Social Work"/>
+                <StringItem index="29" value="Sport"/>
+                <StringItem index="30" value="Vision and Hearing Sciences"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="comboBoxDept.addActionListener(new ActionListener(){&#xa;    public void actionPerformed(ActionEvent e){&#xa;        //Retrieve selected item&#xa;        String selectedItem = (String) comboBoxDept.getSelectedItem();&#xa;        studentDepartment = selectedItem;&#xa;    }&#xa;});"/>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
