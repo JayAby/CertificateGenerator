@@ -1,21 +1,30 @@
 
 package CertificateGenerator;
 
+import com.itextpdf.io.image.ImageData;
+import com.itextpdf.io.image.ImageDataFactory;
+import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.layout.Document;
+import com.itextpdf.layout.borders.Border;
+import com.itextpdf.layout.element.Image;
 import java.awt.BorderLayout;
-import java.awt.Image;
+//import java.awt.Image;
 import java.io.File;
+import java.io.FileNotFoundException;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-public class ViewTemplates extends javax.swing.JFrame {
+public class ViewCertificates extends javax.swing.JFrame {
 
-    public ViewTemplates() {
+    public ViewCertificates() {
         initComponents();
     }
     
@@ -79,8 +88,8 @@ public class ViewTemplates extends javax.swing.JFrame {
                         ImageIcon originalIcon = new ImageIcon(filePath);
 
                         //Resize the Image
-                        Image originalImage = originalIcon.getImage();
-                        Image resizedImage = originalImage.getScaledInstance(800,516,Image.SCALE_SMOOTH);
+                        java.awt.Image originalImage = originalIcon.getImage();
+                        java.awt.Image resizedImage = originalImage.getScaledInstance(800,516,java.awt.Image.SCALE_SMOOTH);
                         ImageIcon resizedIcon = new ImageIcon(resizedImage);
 
                         displayLabel.setIcon(resizedIcon);
@@ -97,6 +106,11 @@ public class ViewTemplates extends javax.swing.JFrame {
         });
 
         displayLabel.setText("");
+        displayLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                displayLabelMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -156,6 +170,45 @@ public class ViewTemplates extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSearchFieldActionPerformed
 
+    private void displayLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_displayLabelMouseClicked
+        // TODO add your handling code here:
+        int choice = JOptionPane.showConfirmDialog(this, "Do you want to download as PDF?", "Confirmation", JOptionPane.YES_NO_OPTION);
+
+        //Check user choice
+        if (choice == JOptionPane.YES_OPTION){
+            //Get selected item from the list
+            String selectedItem = fileList.getSelectedValue();
+            
+            if(selectedItem != null){
+                try{
+                    String output = "output.pdf";
+                    try (PdfWriter writer = new PdfWriter(output);
+                        PdfDocument pdfDoc = new PdfDocument(writer);
+                        Document document = new Document(pdfDoc)){
+
+                        String imagePath = "/Users/joel/Desktop/ARU/1/SoftwarePrinciples/Assessment/CertificateGenerator/CertificateGeneratorGUI/CertificatesPNG/" + selectedItem;
+                        ImageData data = ImageDataFactory.create(imagePath);
+                        Image img = new Image(data);
+                        img.setBorder(Border.NO_BORDER);
+
+                        document.add(img);
+                    }
+//                    document.close();
+                    JOptionPane.showMessageDialog(this, "PNG image converted to PDF successfully"); 
+                    }catch (FileNotFoundException e){
+                        JOptionPane.showMessageDialog(this, "Error: Image not found");
+                      
+                }catch(Exception e){
+                    e.printStackTrace();
+                    JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+                }
+            }
+            
+        }else if(choice == JOptionPane.NO_OPTION){
+            
+        }
+    }//GEN-LAST:event_displayLabelMouseClicked
+
     private void filterList(File[] files){
         DefaultListModel<String> model = (DefaultListModel<String>) fileList.getModel();
         String searchText = txtSearchField.getText().toLowerCase();
@@ -171,7 +224,7 @@ public class ViewTemplates extends javax.swing.JFrame {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ViewTemplates().setVisible(true);
+                new ViewCertificates().setVisible(true);
             }
         });
     }
@@ -185,4 +238,5 @@ public class ViewTemplates extends javax.swing.JFrame {
     private javax.swing.JLabel lblViewTemplates;
     private javax.swing.JTextField txtSearchField;
     // End of variables declaration//GEN-END:variables
+
 }

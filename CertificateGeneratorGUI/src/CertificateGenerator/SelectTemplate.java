@@ -180,11 +180,16 @@ public class SelectTemplate extends javax.swing.JFrame {
             String awardDate = studentDetails[5];
             String reasonForAward = studentDetails[6];
             f.drawString(name, 900, 540);
-            g.drawString(dept,850,1100);
+            //g.drawString(dept,850,1100);
+            FontMetrics metrics = g.getFontMetrics();
+            int x = (certificate.getWidth() - metrics.stringWidth(name)) / 2;
+            int y = certificate.getHeight()/2;
+            g.drawString(dept, x, y);
             g.drawString(id,290,1100);
             g.drawString(startYear +  " - " + endYear ,1400,1100);
             g.drawString(awardDate, 900, 932); 
-            g.drawString(reasonForAward, 900,760); 
+            //g.drawString(reasonForAward, 900,760); 
+            g.drawString(reasonForAward, x, y);
             
             g.dispose();
             f.dispose();
@@ -197,7 +202,7 @@ public class SelectTemplate extends javax.swing.JFrame {
             }
             
             //Save the certificate as a PNG file
-            File pngOutputFile = new File(OUTPUT_FOLDER + File.separator + "certificate_" + name + id + ".png");
+            File pngOutputFile = new File(OUTPUT_FOLDER + File.separator + "certificate_" + name + "_" + id + ".png");
             ImageIO.write(certificate, "png", pngOutputFile);
 
             JOptionPane.showMessageDialog(this, "Certificate saved as PNG");

@@ -87,7 +87,7 @@ public class EnterStudentDetails extends javax.swing.JFrame {
         lblReasonForAward.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         lblReasonForAward.setText("Reason for Award: ");
 
-        comboBoxDept.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Accounting and Finance", "Acting, drama and theatre", "Animal and Environment", "Architecture, Construction and Surveying", "Art and Design", "Business", "Computer Games", "Computer Science", "Crime and Investigation", "Data Science", "Education", "Engineering", "Film and Media", "Health and Medical Science", "Law", "Literature, Language and Writing", "Management", "Marketing", "Medicine", "Midwifery", "Music and music technology", "Nursing", "Operating Department Practice", "Policing", "Post-registratsion Nursing", "Psychology", "Social Care", "Social Sciences", "Social Work", "Sport", "Vision and Hearing Sciences" }));
+        comboBoxDept.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Accounting and Finance", "Drama and Theatre", "Animal and Environment", "Architecture", "Art and Design", "Business", "Computer Games", "Computer Science", "Crime and Investigation", "Data Science", "Education", "Engineering", "Film and Media", "Health Science", "Law", "Language and Writing", "Management", "Marketing", "Medicine", "Midwifery", "Music Technology", "Nursing", "Policing", "Psychology", "Social Care", "Social Sciences", "Social Work", "Sport" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -125,7 +125,7 @@ public class EnterStudentDetails extends javax.swing.JFrame {
                             .addComponent(lblStudentDept)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(comboBoxDept, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addContainerGap(27, Short.MAX_VALUE))
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                             .addComponent(lblStudentID)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
