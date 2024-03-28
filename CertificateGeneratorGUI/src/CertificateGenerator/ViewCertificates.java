@@ -11,7 +11,6 @@ import com.itextpdf.layout.element.Image;
 import java.awt.BorderLayout;
 //import java.awt.Image;
 import java.io.File;
-import java.io.FileNotFoundException;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JList;
@@ -182,22 +181,19 @@ public class ViewCertificates extends javax.swing.JFrame {
             if(selectedItem != null){
                 try{
                     String output = "output.pdf";
-                    try (PdfWriter writer = new PdfWriter(output);
-                        PdfDocument pdfDoc = new PdfDocument(writer);
-                        Document document = new Document(pdfDoc)){
-
-                        String imagePath = "/Users/joel/Desktop/ARU/1/SoftwarePrinciples/Assessment/CertificateGenerator/CertificateGeneratorGUI/CertificatesPNG/" + selectedItem;
-                        ImageData data = ImageDataFactory.create(imagePath);
-                        Image img = new Image(data);
-                        img.setBorder(Border.NO_BORDER);
-
-                        document.add(img);
-                    }
-//                    document.close();
+                    PdfWriter writer = new PdfWriter(output);
+                    PdfDocument pdfDoc = new PdfDocument(writer);
+                    Document document = new Document(pdfDoc);
+                    
+                    String imagePath = "/Users/joel/Desktop/ARU/1/SoftwarePrinciples/Assessment/CertificateGenerator/CertificateGeneratorGUI/CertificatesPNG/" + selectedItem;
+                    ImageData data = ImageDataFactory.create(imagePath);
+                    Image img = new Image(data);
+                    img.setBorder(Border.NO_BORDER);
+                    
+                    document.add(img);
+                    document.close();
                     JOptionPane.showMessageDialog(this, "PNG image converted to PDF successfully"); 
-                    }catch (FileNotFoundException e){
-                        JOptionPane.showMessageDialog(this, "Error: Image not found");
-                      
+
                 }catch(Exception e){
                     e.printStackTrace();
                     JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
