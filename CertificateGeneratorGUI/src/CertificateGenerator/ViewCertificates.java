@@ -180,8 +180,18 @@ public class ViewCertificates extends javax.swing.JFrame {
             
             if(selectedItem != null){
                 try{
-                    String output = "output.pdf";
-                    PdfWriter writer = new PdfWriter(output);
+                    // Define the output folder 
+                    String outputFolder = "CertificatePDFs"; // Specifying the output folder
+                    File folder = new File(outputFolder);
+                    if(!folder.exists()){
+                        //Create the folder if it doesn't exist
+                        folder.mkdir(); 
+                    }
+                    
+                    // Construct the output file path
+                    String outputFilePath = outputFolder + File.separator + selectedItem.replace(".png", ".pdf");
+                    
+                    PdfWriter writer = new PdfWriter(outputFilePath);
                     PdfDocument pdfDoc = new PdfDocument(writer);
                     Document document = new Document(pdfDoc);
                     
@@ -192,6 +202,7 @@ public class ViewCertificates extends javax.swing.JFrame {
                     
                     document.add(img);
                     document.close();
+                    
                     JOptionPane.showMessageDialog(this, "PNG image converted to PDF successfully"); 
 
                 }catch(Exception e){
