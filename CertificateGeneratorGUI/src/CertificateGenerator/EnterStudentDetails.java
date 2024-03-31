@@ -114,8 +114,7 @@ public class EnterStudentDetails extends javax.swing.JFrame {
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                     .addComponent(lblStudentDept)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(comboBoxDept, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(comboBoxDept, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                     .addComponent(lblStudentID)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -209,8 +208,8 @@ public class EnterStudentDetails extends javax.swing.JFrame {
         }else{
             //If all fields are field, proceed to the template selection form
             String[] studentDetails = {studentName, studentDepartment, studentID, startYear, endYear, dateOfAward, reasonForAward};
-            SelectTemplate selectTemplate = new SelectTemplate(studentDetails);
-            selectTemplate.setVisible(true);
+            AwardeeDetails awardeeDetails = new AwardeeDetails(studentDetails);
+            awardeeDetails.setVisible(true);
             this.dispose();
         }
     }//GEN-LAST:event_btnGenerateCertActionPerformed

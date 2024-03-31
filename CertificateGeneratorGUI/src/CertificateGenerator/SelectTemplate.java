@@ -12,12 +12,14 @@ import java.io.FileOutputStream;
 public class SelectTemplate extends javax.swing.JFrame {
     
     private String[] studentDetails;
+    private String[] awardeeDetails;
     private static final String OUTPUT_FOLDER = "CertificatesPNG"; //Creating a new folder called Certifcates
    
 
-    public SelectTemplate(String[] studentDetails) {
+    public SelectTemplate(String[] studentDetails, String[] awardeeDetails) {
         initComponents();
         this.studentDetails = studentDetails;
+        this.awardeeDetails = awardeeDetails;
     }
 
     @SuppressWarnings("unchecked")
@@ -123,6 +125,10 @@ public class SelectTemplate extends javax.swing.JFrame {
             g.drawString(startYear +  " - " + endYear ,1400,1100);
             g.drawString(awardDate, 900, 932); 
             g.drawString(reasonForAward, 900,760);
+                        
+            // Draw the awardee details
+            String fName = awardeeDetails[0];
+            g.drawString(fName, 900, 820);
             
             g.dispose();
             f.dispose();
