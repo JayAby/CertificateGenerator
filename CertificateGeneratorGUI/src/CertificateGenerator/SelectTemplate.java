@@ -122,7 +122,7 @@ public class SelectTemplate extends javax.swing.JFrame {
             g.drawString(id,290,1100);
             g.drawString(startYear +  " - " + endYear ,1400,1100);
             g.drawString(awardDate, 900, 932); 
-            g.drawString(reasonForAward, 900,760); 
+            g.drawString(reasonForAward, 900,760);
             
             g.dispose();
             f.dispose();
