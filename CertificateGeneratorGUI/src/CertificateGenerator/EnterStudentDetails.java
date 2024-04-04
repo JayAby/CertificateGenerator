@@ -87,7 +87,7 @@ public class EnterStudentDetails extends javax.swing.JFrame {
         lblReasonForAward.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         lblReasonForAward.setText("Reason for Award: ");
 
-        comboBoxDept.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Accounting and Finance", "Drama and Theatre", "Animal and Environment", "Architecture", "Art and Design", "Business", "Computer Games", "Computer Science", "Crime and Investigation", "Data Science", "Education", "Engineering", "Film and Media", "Health Science", "Law", "Language and Writing", "Management", "Marketing", "Medicine", "Midwifery", "Music Technology", "Nursing", "Policing", "Psychology", "Social Care", "Social Sciences", "Social Work", "Sport" }));
+        comboBoxDept.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ","Accounting and Finance", "Drama and Theatre", "Animal and Environment", "Architecture", "Art and Design", "Business", "Computer Games", "Computer Science", "Crime and Investigation", "Data Science", "Education", "Engineering", "Film and Media", "Health Science", "Law", "Language and Writing", "Management", "Marketing", "Medicine", "Midwifery", "Music Technology", "Nursing", "Policing", "Psychology", "Social Care", "Social Sciences", "Social Work", "Sport" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -202,15 +202,24 @@ public class EnterStudentDetails extends javax.swing.JFrame {
         txtDateofAward.setText(formattedDate);
         dateOfAward = txtDateofAward.getText();
         reasonForAward = txtReasonForAward.getText();
+        int start = Integer.parseInt(startYear);
+        int end = Integer.parseInt(endYear);
                 
         if("".equals(studentName) || "".equals(studentDepartment) || "".equals(studentID) || "".equals(startYear) || "".equals(endYear) || "".equals(dateOfAward) || "".equals(reasonForAward)){
             JOptionPane.showMessageDialog(this, "Empty Spaces are not allowed");
         }else{
-            //If all fields are field, proceed to the template selection form
-            String[] studentDetails = {studentName, studentDepartment, studentID, startYear, endYear, dateOfAward, reasonForAward};
-            AwardeeDetails awardeeDetails = new AwardeeDetails(studentDetails);
-            awardeeDetails.setVisible(true);
-            this.dispose();
+            // Check the start year and end year
+            if(end < start){
+                JOptionPane.showMessageDialog(this, "End date cannot be Less than Start date");
+            }else{
+                //If all fields are field, proceed to the awardee details form
+                String[] studentDetails = {studentName, studentDepartment, studentID, startYear, endYear, dateOfAward, reasonForAward};
+                AwardeeDetails awardeeDetails = new AwardeeDetails(studentDetails);
+                awardeeDetails.setVisible(true);
+                this.dispose();
+            }
+
+            
         }
     }//GEN-LAST:event_btnGenerateCertActionPerformed
 
