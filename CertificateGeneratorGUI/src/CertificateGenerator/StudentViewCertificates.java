@@ -21,10 +21,14 @@ import javax.swing.event.DocumentListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-public class ViewCertificates extends javax.swing.JFrame {
+public class StudentViewCertificates extends javax.swing.JFrame {
+    private String initialSearch;
 
-    public ViewCertificates() {
+    public StudentViewCertificates(String searchQuery) {
+        this.initialSearch = searchQuery;
         initComponents();
+        txtSearchField.setText(initialSearch);
+//        filterList();
     }
     
 

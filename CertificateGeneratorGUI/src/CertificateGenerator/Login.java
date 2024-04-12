@@ -1,6 +1,9 @@
 
 package CertificateGenerator;
 
+import static java.lang.Thread.sleep;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
@@ -132,8 +135,18 @@ public class Login extends javax.swing.JFrame {
         if("".equals(userName) || "".equals(email) || "".equals(password)){
             JOptionPane.showMessageDialog(this, "No Empty Spaces allowed");
         }else{
+            //Checks if the email entered belongs to a staff or a student or if it is not valid at all
             if(email .matches("^\\S+@student.aru.ac.uk$")){
                 System.out.println("Student Email Detected");
+                JOptionPane.showMessageDialog(this, "Redirecting you to student Menu");
+                this.dispose();
+                try {
+                    sleep(3000);
+                    StudentMenu studentmenu = new StudentMenu();
+                    studentmenu.setVisible(true);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }else if(email.matches("^\\S+@aru.ac.uk$")){
                 System.out.println("Staff Email Detected");
             }else{
