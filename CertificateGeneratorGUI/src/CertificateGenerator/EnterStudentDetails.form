@@ -23,12 +23,15 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
+          <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -46,98 +49,111 @@
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="lblDOC" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="txtDateofAward" min="-2" pref="258" max="-2" attributes="0"/>
-                              </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblReasonForAward" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="txtReasonForAward" min="-2" pref="258" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblStudentName" min="-2" pref="136" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="txtStudentName" min="-2" pref="257" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblStudentDept" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="comboBoxDept" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblStudentDept" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblReasonForAward" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblStartYear" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblDOC" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblStudentID" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="txtStudentID" min="-2" pref="257" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="txtDateofAward" min="-2" pref="382" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="txtStartYear" min="-2" pref="128" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                              <Component id="lblEndYear" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="txtEndYear" min="-2" pref="128" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="txtReasonForAward" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="comboBoxDept" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
-                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                  <Component id="topicLabel" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="lblStartYear" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="txtStartYear" min="-2" pref="136" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                      <Component id="lblEndYear" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="txtEndYear" min="-2" pref="136" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblStudentName" alignment="0" min="-2" pref="136" max="-2" attributes="0"/>
+                                      <Component id="lblStudentID" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="51" pref="51" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="txtStudentID" pref="382" max="32767" attributes="0"/>
+                                      <Component id="txtStudentName" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
+                          <EmptySpace pref="69" max="32767" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="224" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="btnBack" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
                           <Component id="btnGenerateCert" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="201" max="32767" attributes="0"/>
+                  <Component id="jLabel1" min="-2" pref="463" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
+                  <Component id="topicLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="32" pref="32" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Component id="topicLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblStudentName" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                      <Component id="txtStudentName" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblStudentID" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtStudentID" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblStudentDept" min="-2" max="-2" attributes="0"/>
-                      <Component id="comboBoxDept" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblStudentName" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                              <Component id="txtStudentName" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblStudentID" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtStudentID" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblStudentDept" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="comboBoxDept" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblReasonForAward" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtReasonForAward" min="-2" pref="25" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblStartYear" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtStartYear" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="lblEndYear" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtEndYear" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblDOC" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtDateofAward" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btnGenerateCert" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
+                              <Component id="btnBack" alignment="3" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Component id="jLabel1" min="-2" pref="388" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblReasonForAward" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtReasonForAward" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="37" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblStartYear" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblEndYear" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtStartYear" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                      <Component id="txtEndYear" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblDOC" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtDateofAward" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                  <Component id="btnGenerateCert" min="-2" pref="55" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                  <EmptySpace pref="112" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -146,7 +162,7 @@
         <Component class="javax.swing.JLabel" name="topicLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Helvetica Neue" size="36" style="1"/>
+              <Font name="SansSerif" size="24" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Enter Student Details"/>
           </Properties>
@@ -154,7 +170,7 @@
         <Component class="javax.swing.JLabel" name="lblStudentName">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Helvetica Neue" size="18" style="0"/>
+              <Font name="Kefa" size="18" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Student Name :"/>
           </Properties>
@@ -164,7 +180,7 @@
         <Component class="javax.swing.JLabel" name="lblStudentID">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Helvetica Neue" size="18" style="0"/>
+              <Font name="Kefa" size="18" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Student ID:"/>
           </Properties>
@@ -172,7 +188,7 @@
         <Component class="javax.swing.JLabel" name="lblStudentDept">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Helvetica Neue" size="18" style="0"/>
+              <Font name="Kefa" size="18" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Student Department:"/>
           </Properties>
@@ -180,7 +196,7 @@
         <Component class="javax.swing.JLabel" name="lblStartYear">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Helvetica Neue" size="18" style="0"/>
+              <Font name="Kefa" size="18" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Start year:"/>
           </Properties>
@@ -188,7 +204,7 @@
         <Component class="javax.swing.JLabel" name="lblEndYear">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Helvetica Neue" size="18" style="0"/>
+              <Font name="Kefa" size="18" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="End year:"/>
           </Properties>
@@ -196,9 +212,9 @@
         <Component class="javax.swing.JLabel" name="lblDOC">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Helvetica Neue" size="18" style="0"/>
+              <Font name="Kefa" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Date of Certificate Awarded:"/>
+            <Property name="text" type="java.lang.String" value="Date: "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtStudentID">
@@ -206,13 +222,16 @@
         <Component class="javax.swing.JTextField" name="txtStartYear">
         </Component>
         <Component class="javax.swing.JTextField" name="txtEndYear">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEndYearActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtDateofAward">
         </Component>
         <Component class="javax.swing.JButton" name="btnGenerateCert">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Helvetica" size="18" style="1"/>
+              <Font name="Silom" size="14" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Generate Certificate"/>
           </Properties>
@@ -223,7 +242,7 @@
         <Component class="javax.swing.JLabel" name="lblReasonForAward">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Helvetica Neue" size="18" style="0"/>
+              <Font name="Kefa" size="18" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Reason for Award: "/>
           </Properties>
@@ -240,6 +259,24 @@
             <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="comboBoxDept.addActionListener(new ActionListener(){&#xa;    public void actionPerformed(ActionEvent e){&#xa;        //Retrieve selected item&#xa;        String selectedItem = (String) comboBoxDept.getSelectedItem();&#xa;        studentDepartment = selectedItem;&#xa;    }&#xa;});"/>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnBack">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Silom" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Back"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBackActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="2" name="/Users/joel/Desktop/ARU/1/SoftwarePrinciples/Assessment/CertificateGenerator/CertificateGeneratorGUI/Screen_Shot_2024-04-23_at_12.55.37_60-removebg-preview (1).png"/>
+            </Property>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
