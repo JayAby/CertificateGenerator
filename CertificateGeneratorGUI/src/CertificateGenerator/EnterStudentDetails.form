@@ -222,9 +222,6 @@
         <Component class="javax.swing.JTextField" name="txtStartYear">
         </Component>
         <Component class="javax.swing.JTextField" name="txtEndYear">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEndYearActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtDateofAward">
         </Component>

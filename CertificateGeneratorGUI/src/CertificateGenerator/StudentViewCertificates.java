@@ -1,6 +1,7 @@
-
+//SID: 2258796
 package CertificateGenerator;
 
+// Used to save the certificate as a PDF file
 import com.itextpdf.io.image.ImageData;
 import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.pdf.PdfDocument;
@@ -22,11 +23,14 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 public class StudentViewCertificates extends javax.swing.JFrame {
+//    Stores the intital search query from the id entered in the student menu
     private String initialSearch;
 
     public StudentViewCertificates(String searchQuery) {
+//        Assigns the initial query
         this.initialSearch = searchQuery;
         initComponents();
+//        Sets the initial query in the text field
         txtSearchField.setText(initialSearch);
 //        filterList();
     }
@@ -188,14 +192,16 @@ public class StudentViewCertificates extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSearchFieldActionPerformed
 
     private void displayLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_displayLabelMouseClicked
-        // TODO add your handling code here:
+        // Asks user if they want to download the certificate as PDF
         int choice = JOptionPane.showConfirmDialog(this, "Do you want to download as PDF?", "Confirmation", JOptionPane.YES_NO_OPTION);
 
         //Check user choice
+        // If user selected yes
         if (choice == JOptionPane.YES_OPTION){
             //Get selected item from the list
             String selectedItem = fileList.getSelectedValue();
             
+            // If an item is selected
             if(selectedItem != null){
                 try{
                     // Define the output folder 
@@ -206,21 +212,23 @@ public class StudentViewCertificates extends javax.swing.JFrame {
                         folder.mkdir(); 
                     }
                     
-                    // Construct the output file path
+                    // Construct the output file type and file path
+                    // Saves the certicate as a PDF file
                     String outputFilePath = outputFolder + File.separator + selectedItem.replace(".png", ".pdf");
                     
+                    // Initializes PDF writer, document and adds the image to the PDF document
                     PdfWriter writer = new PdfWriter(outputFilePath);
                     PdfDocument pdfDoc = new PdfDocument(writer);
                     Document document = new Document(pdfDoc);
-                    
+                    // Retreives the image path and creates an image path
                     String imagePath = "/Users/joel/Desktop/ARU/1/SoftwarePrinciples/Assessment/CertificateGenerator/CertificateGeneratorGUI/CertificatesPNG/" + selectedItem;
                     ImageData data = ImageDataFactory.create(imagePath);
                     Image img = new Image(data);
                     img.setBorder(Border.NO_BORDER);
-                    
+                    // Adds the image to the PDF document and closes it
                     document.add(img);
                     document.close();
-                    
+                    // Display a message dialog showing the conersiion has been successful
                     JOptionPane.showMessageDialog(this, "PNG image converted to PDF successfully"); 
 
                 }catch(Exception e){
@@ -228,26 +236,36 @@ public class StudentViewCertificates extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
                 }
             }
-            
+//            DO nothing if user chooses no
         }else if(choice == JOptionPane.NO_OPTION){
             
         }
     }//GEN-LAST:event_displayLabelMouseClicked
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
+        // Closes the current page and returns the user to the student menu
         this.dispose();
         StudentMenu studentMenu = new StudentMenu();
         studentMenu.setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
-
+    
+    
+//    Filters the list of files based on the search text entered by the user
+    
     private void filterList(File[] files){
+        // Getting the default list model associated with the JList component
         DefaultListModel<String> model = (DefaultListModel<String>) fileList.getModel();
+        // Get the text entered by the user and convert it to lowercase
         String searchText = txtSearchField.getText().toLowerCase();
+        // Clear the existing list model 
         model.clear();
+        // Iterate through the files in the array of files
         for(File file : files){
+            // Get the name of the current file
             String fileName = file.getName();
+            // Check if the filename contains the searched text
             if (fileName.toLowerCase().contains(searchText)){
+                // If file name matches search text, add it to the list model
                 model.addElement(fileName);
             }
         }

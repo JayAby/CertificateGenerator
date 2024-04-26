@@ -1,4 +1,4 @@
-
+//SID: 2258796
 package CertificateGenerator;
 
 import javax.swing.JOptionPane;
@@ -15,7 +15,7 @@ public class SelectTemplate extends javax.swing.JFrame {
     private String[] awardeeDetails;
     private static final String OUTPUT_FOLDER = "CertificatesPNG"; //Creating a new folder called Certifcates
    
-
+// Gets the data stored in the student details array and awardee details array
     public SelectTemplate(String[] studentDetails, String[] awardeeDetails) {
         initComponents();
         this.studentDetails = studentDetails;
@@ -32,6 +32,8 @@ public class SelectTemplate extends javax.swing.JFrame {
         lblTitle = new javax.swing.JLabel();
         lblTemplate1 = new javax.swing.JLabel();
         lblTemplate2 = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
+        btnViewCert = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,6 +56,22 @@ public class SelectTemplate extends javax.swing.JFrame {
             }
         });
 
+        btnBack.setFont(new java.awt.Font("Silom", 1, 14)); // NOI18N
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
+        btnViewCert.setFont(new java.awt.Font("Silom", 1, 14)); // NOI18N
+        btnViewCert.setText("View Certificates");
+        btnViewCert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewCertActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -66,16 +84,23 @@ public class SelectTemplate extends javax.swing.JFrame {
                         .addGap(33, 33, 33)
                         .addComponent(lblTemplate2, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(387, 387, 387)
-                        .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(88, 88, 88)
+                        .addComponent(btnBack)
+                        .addGap(227, 227, 227)
+                        .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(161, 161, 161)
+                        .addComponent(btnViewCert, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(1063, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(lblTitle)
-                .addGap(36, 36, 36)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTitle)
+                    .addComponent(btnBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnViewCert, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblTemplate1, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblTemplate2, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -104,6 +129,7 @@ public class SelectTemplate extends javax.swing.JFrame {
     private void lblTemplate1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTemplate1MouseClicked
         try{
             //Load the certificate template
+            // Change the pathname to where you kept the certifcates template and then choose one of the templates
             BufferedImage certificate = ImageIO.read(new File("/Users/joel/Desktop/ARU/1/SoftwarePrinciples/Assessment/CertificateGenerator/CertificateGeneratorGUI/src/CertificateGenerator/CertificatesTemplate/CertificateDesignTemplate.png"));
                         
             //Create a graphic object from the image
@@ -228,6 +254,20 @@ public class SelectTemplate extends javax.swing.JFrame {
         
     }//GEN-LAST:event_lblTemplate2MouseClicked
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // Closes the current page and returns you to the admin menu
+        this.dispose();
+        AdminMenu adminMenu = new AdminMenu();
+        adminMenu.setVisible(true);
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnViewCertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewCertActionPerformed
+        // Closes the current page and opens the view certificate page
+        this.dispose();
+        ViewCertificates viewAllCerts = new ViewCertificates();
+        viewAllCerts.setVisible(true);
+    }//GEN-LAST:event_btnViewCertActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -264,6 +304,8 @@ public class SelectTemplate extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnViewCert;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblTemplate1;
     private javax.swing.JLabel lblTemplate2;

@@ -167,9 +167,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtInstitution">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtInstitutionActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnGenerate">
           <Properties>

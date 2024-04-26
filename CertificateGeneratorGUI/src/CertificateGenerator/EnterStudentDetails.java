@@ -1,10 +1,11 @@
-
+//SID: 2258796
 package CertificateGenerator;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import javax.swing.JOptionPane;
+// Used to get the current date
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -26,6 +27,7 @@ public class EnterStudentDetails extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     
     public String[] getStudentDetails(){
+//        Create an array to store the student details
         return new String[] {
             studentName,studentDepartment,studentID,startYear,endYear,dateOfAward,reasonForAward 
         };
@@ -77,12 +79,6 @@ public class EnterStudentDetails extends javax.swing.JFrame {
 
         lblDOC.setFont(new java.awt.Font("Kefa", 1, 18)); // NOI18N
         lblDOC.setText("Date: ");
-
-        txtEndYear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEndYearActionPerformed(evt);
-            }
-        });
 
         btnGenerateCert.setFont(new java.awt.Font("Silom", 1, 14)); // NOI18N
         btnGenerateCert.setText("Generate Certificate");
@@ -222,8 +218,7 @@ public class EnterStudentDetails extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGenerateCertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateCertActionPerformed
-        // TODO add your handling code here:
-        
+        // Gets the details entered by the user
         studentName = txtStudentName.getText();
         studentID = txtStudentID.getText();
         startYear = txtStartYear.getText();
@@ -231,17 +226,20 @@ public class EnterStudentDetails extends javax.swing.JFrame {
         txtDateofAward.setText(formattedDate);
         dateOfAward = txtDateofAward.getText();
         reasonForAward = txtReasonForAward.getText();
+        
+        // Converts the startyear and end year from strings to integers
         int start = Integer.parseInt(startYear);
         int end = Integer.parseInt(endYear);
-                
+        
+       // Checks if there are any empty spaces and returns an error if any
         if("".equals(studentName) || "".equals(studentDepartment) || "".equals(studentID) || "".equals(startYear) || "".equals(endYear) || "".equals(dateOfAward) || "".equals(reasonForAward)){
             JOptionPane.showMessageDialog(this, "Empty Spaces are not allowed");
         }else{
-            // Check the start year and end year
+            // Checks if the end year is less than the start year and returns an error
             if(end < start){
                 JOptionPane.showMessageDialog(this, "End date cannot be Less than Start date");
             }else{
-                //If all fields are field, proceed to the awardee details form
+                //If all textfields are field and end year is greater than start year, then proceed to the awardee details form and close current page
                 String[] studentDetails = {studentName, studentDepartment, studentID, startYear, endYear, dateOfAward, reasonForAward};
                 AwardeeDetails awardeeDetails = new AwardeeDetails(studentDetails);
                 awardeeDetails.setVisible(true);
@@ -253,15 +251,11 @@ public class EnterStudentDetails extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGenerateCertActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
+        // Closes the current page and returns you to the admin menu
         this.dispose();
         AdminMenu adminMenu = new AdminMenu();
         adminMenu.setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
-
-    private void txtEndYearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEndYearActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEndYearActionPerformed
 
 
 

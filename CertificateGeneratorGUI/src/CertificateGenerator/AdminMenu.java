@@ -1,4 +1,5 @@
-//SID: 
+//SID: 2258796
+
 package CertificateGenerator;
 
 public class AdminMenu extends javax.swing.JFrame {
@@ -95,14 +96,14 @@ public class AdminMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnViewCertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewCertActionPerformed
-        // TODO add your handling code here:
+        // Close the current screen and open the View Certicates Page
         this.dispose();
         ViewCertificates viewAllCerts = new ViewCertificates();
         viewAllCerts.setVisible(true);
     }//GEN-LAST:event_btnViewCertActionPerformed
 
     private void btnCreateCertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateCertActionPerformed
-        // TODO add your handling code here:
+        // Close the current page and open the Enter Student Details Page
         this.dispose();
         EnterStudentDetails studentDetails = new EnterStudentDetails();
         studentDetails.setVisible(true);

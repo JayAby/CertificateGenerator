@@ -1,4 +1,4 @@
-
+//SID: 2258796
 package CertificateGenerator;
 
 import javax.swing.JOptionPane;
@@ -106,11 +106,12 @@ public class StudentMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnViewCertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewCertActionPerformed
-        // TODO add your handling code here:
+        // Gets the student ID and returns an error if ID is empty 
         idNumber = txtSearch.getText();
         if(idNumber.isEmpty()){
             JOptionPane.showMessageDialog(this,"Please enter a valid student ID");
         }else{
+            // Closes current page and opens the student view certifcate page with the Certifcate based on the id number
             this.dispose();
             StudentViewCertificates viewcert = new StudentViewCertificates(idNumber);
             viewcert.setVisible(true);

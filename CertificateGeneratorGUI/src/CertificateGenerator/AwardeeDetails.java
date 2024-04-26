@@ -1,19 +1,21 @@
-
+//SID: 2258796
 package CertificateGenerator;
 
 import javax.swing.JOptionPane;
 
 public class AwardeeDetails extends javax.swing.JFrame {
     
+    // Creates an array that stores the student Details
     private String[] studentDetails;
     String firstName, lastName, email, institution;
     
-
+    // Initialize the Awardee Details object with student Details
     public AwardeeDetails(String[] studentDetails) {
         this.studentDetails = studentDetails;
         initComponents();
     }
     
+    // Retrieves the student details stored in the awardee details object.
     public String[] getAwardeeDetails(){
         return new String[] {
           firstName, lastName, email, institution  
@@ -55,12 +57,6 @@ public class AwardeeDetails extends javax.swing.JFrame {
 
         lbInstitution.setFont(new java.awt.Font("Kefa", 1, 18)); // NOI18N
         lbInstitution.setText("Institution: ");
-
-        txtInstitution.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtInstitutionActionPerformed(evt);
-            }
-        });
 
         btnGenerate.setFont(new java.awt.Font("Silom", 1, 14)); // NOI18N
         btnGenerate.setText("Generate Certificate");
@@ -149,12 +145,13 @@ public class AwardeeDetails extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGenerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateActionPerformed
-        // TODO add your handling code here:
+        // Get's the details entered by the user
         firstName = txtFName.getText();
         lastName = txtLName.getText();
         email = txtEmail.getText();
         institution = txtInstitution.getText();
         
+        // Checks if any spaces are missing, if yes, return an error, else, save the details entered by the user and open the Select Template page and close the current page
         if("".equals(firstName) || "".equals(lastName) || "".equals(email) || "".equals(institution)){
             JOptionPane.showMessageDialog(this, "Please fill in all the text-fields");
         }else{
@@ -165,10 +162,6 @@ public class AwardeeDetails extends javax.swing.JFrame {
             this.dispose();
         }
     }//GEN-LAST:event_btnGenerateActionPerformed
-
-    private void txtInstitutionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtInstitutionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtInstitutionActionPerformed
 
 //    public static void main(String args[]) {
 //

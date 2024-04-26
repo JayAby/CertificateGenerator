@@ -1,4 +1,4 @@
-
+//SID: 2258796
 package CertificateGenerator;
 
 import com.itextpdf.io.image.ImageData;
@@ -125,7 +125,7 @@ public class ViewCertificates extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addComponent(btnBack)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -134,16 +134,16 @@ public class ViewCertificates extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(138, 138, 138)
-                        .addComponent(lblSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtSearchField, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(91, 91, 91)
                         .addComponent(displayLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(114, 114, 114)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(138, 138, 138)
+                        .addComponent(lblSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtSearchField, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(135, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -190,14 +190,16 @@ public class ViewCertificates extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSearchFieldActionPerformed
 
     private void displayLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_displayLabelMouseClicked
-        // TODO add your handling code here:
+     // Asks user if they want to download the certificate as PDF
         int choice = JOptionPane.showConfirmDialog(this, "Do you want to download as PDF?", "Confirmation", JOptionPane.YES_NO_OPTION);
 
         //Check user choice
+        // If user selected yes
         if (choice == JOptionPane.YES_OPTION){
             //Get selected item from the list
             String selectedItem = fileList.getSelectedValue();
             
+            // If an item is selected
             if(selectedItem != null){
                 try{
                     // Define the output folder 
@@ -208,21 +210,23 @@ public class ViewCertificates extends javax.swing.JFrame {
                         folder.mkdir(); 
                     }
                     
-                    // Construct the output file path
+                    // Construct the output file type and file path
+                    // Saves the certicate as a PDF file
                     String outputFilePath = outputFolder + File.separator + selectedItem.replace(".png", ".pdf");
                     
+                    // Initializes PDF writer, document and adds the image to the PDF document
                     PdfWriter writer = new PdfWriter(outputFilePath);
                     PdfDocument pdfDoc = new PdfDocument(writer);
                     Document document = new Document(pdfDoc);
-                    
+                    // Retreives the image path and creates an image path
                     String imagePath = "/Users/joel/Desktop/ARU/1/SoftwarePrinciples/Assessment/CertificateGenerator/CertificateGeneratorGUI/CertificatesPNG/" + selectedItem;
                     ImageData data = ImageDataFactory.create(imagePath);
                     Image img = new Image(data);
                     img.setBorder(Border.NO_BORDER);
-                    
+                    // Adds the image to the PDF document and closes it
                     document.add(img);
                     document.close();
-                    
+                    // Display a message dialog showing the conersiion has been successful
                     JOptionPane.showMessageDialog(this, "PNG image converted to PDF successfully"); 
 
                 }catch(Exception e){
@@ -230,26 +234,33 @@ public class ViewCertificates extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
                 }
             }
-            
+//            DO nothing if user chooses no
         }else if(choice == JOptionPane.NO_OPTION){
             
         }
     }//GEN-LAST:event_displayLabelMouseClicked
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
+        // Close the current page and return to the admin menu
         this.dispose();
         AdminMenu adminMenu = new AdminMenu();
         adminMenu.setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void filterList(File[] files){
+        // Getting the default list model associated with the JList component
         DefaultListModel<String> model = (DefaultListModel<String>) fileList.getModel();
+        // Get the text entered by the user and convert it to lowercase
         String searchText = txtSearchField.getText().toLowerCase();
+        // Clear the existing list model 
         model.clear();
+        // Iterate through the files in the array of files
         for(File file : files){
+            // Get the name of the current file
             String fileName = file.getName();
+            // Check if the filename contains the searched text
             if (fileName.toLowerCase().contains(searchText)){
+                // If file name matches search text, add it to the list model
                 model.addElement(fileName);
             }
         }

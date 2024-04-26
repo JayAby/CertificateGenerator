@@ -1,9 +1,7 @@
-
+//SID: 2258796
 package CertificateGenerator;
 
-import static java.lang.Thread.sleep;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import static java.lang.Thread.sleep; // Used to make the system wait for a couple of seconds
 import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
@@ -34,12 +32,6 @@ public class Login extends javax.swing.JFrame {
 
         lblUser.setFont(new java.awt.Font("Kefa", 1, 18)); // NOI18N
         lblUser.setText("Username: ");
-
-        txtUsername.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUsernameActionPerformed(evt);
-            }
-        });
 
         lblEmail.setFont(new java.awt.Font("Kefa", 1, 18)); // NOI18N
         lblEmail.setText("Email: ");
@@ -130,29 +122,29 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsernameActionPerformed
-
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        // TODO add your handling code here:
+        // Gets the user input
         userName = txtUsername.getText();
         email = txtEmail.getText();
         password = txtPassword.getText();
         
+        // Checks if the user has empty spaces and returns an error if there is any
         if("".equals(userName) || "".equals(email) || "".equals(password)){
             JOptionPane.showMessageDialog(this, "No Empty Spaces allowed");
         }else{
             //Checks if the email entered belongs to a staff or a student or if it is not valid at all
+            // Checking Student email by detecting for "@student.aru.ac.uk
             if(email .matches("^\\S+@student.aru.ac.uk$")){
                 //Extract the user part 
                 String userPart = email.substring(0, email.indexOf("@"));
+                // Password verification
                 if(password.equals(userPart + userName + "123")){
                     System.out.println("Student Email Detected: " + userPart);
                     JOptionPane.showMessageDialog(this, "Redirecting you to student Menu");
                     this.dispose();
                     try {
-                        sleep(3000);
+                        sleep(3000); //System waits for 3 seconds before proceeding to the next action
+                        //Opens students menu
                         StudentMenu studentMenu = new StudentMenu();
                         studentMenu.setVisible(true);
                     } catch (InterruptedException e) {
@@ -161,17 +153,18 @@ public class Login extends javax.swing.JFrame {
                 }else{
                     JOptionPane.showMessageDialog(this, "Incorrect Password");
                 }
-
+//           Checks staff email by detecting for "@aru.ac.uk"
             }else if(email.matches("^\\S+@aru.ac.uk$")){
                 // Extract the user part
                 String userPart = email.substring(0, email.indexOf("@"));
-                // Verification
+                // Password Verification
                 if(password.equals(userPart + userName + "516")){
                     System.out.println("Staff Email Detected");
                     JOptionPane.showMessageDialog(this, "Redirecting you to Staff Menu");
                     this.dispose();
                     try{
-                        sleep(3000);
+                        sleep(3000); // System waits for 3 seconds before proceeding to the next action
+                        // Opens Admin Menu
                         AdminMenu adminMenu = new AdminMenu();
                         adminMenu.setVisible(true);
                     } catch (InterruptedException e){
